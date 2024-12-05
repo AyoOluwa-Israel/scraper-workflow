@@ -58,3 +58,29 @@ export const deleteWorkflow = async ({
     throw handleApiError(error);
   }
 };
+
+
+
+export const findWorkflowById = async ({
+  workflowId,
+  userId,
+}: {
+  workflowId: string;
+  userId: string;
+}) => {
+  try {
+    const { data, error } = await supabase
+      .from("workflows").select("*")
+      .eq("id", workflowId)
+      .eq("user_id", userId)
+      .single()
+
+    if (error) {
+      throw error;
+    }
+console.log("here")
+    return data;
+  } catch (error) {
+    throw handleApiError(error);
+  }
+}

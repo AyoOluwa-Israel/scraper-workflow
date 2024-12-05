@@ -5,6 +5,8 @@ import NotFoundPage from "./pages/NotFound";
 import SignInPage from "./pages/auth/SignIn";
 import AuthLayout from "./layouts/AuthLayout";
 import Workflow from "./pages/app/Workflows/Workflow";
+import WorkFlowLayout from "./layouts/WorkFlowLayout";
+import EditorIndex from "./pages/app/Editor";
 
 function App() {
   return (
@@ -19,6 +21,13 @@ function App() {
         <Route element={<DashboardLayout />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/workflows" element={<Workflow />} />
+        </Route>
+
+        <Route element={<WorkFlowLayout />}>
+          <Route
+            path="/workflow/editor/:workflowId"
+            element={<EditorIndex />}
+          />
         </Route>
       </Routes>
     </div>
