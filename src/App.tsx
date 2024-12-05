@@ -1,16 +1,27 @@
 import { Route, Routes } from "react-router-dom";
-import Homepage from "./pages/Homepage";
+import Homepage from "./pages/app/Homepage";
 import DashboardLayout from "./layouts/DashboardLayout";
 import NotFoundPage from "./pages/NotFound";
+import SignInPage from "./pages/auth/SignIn";
+import AuthLayout from "./layouts/AuthLayout";
+import Workflow from "./pages/app/Workflows/Workflow";
 
 function App() {
   return (
-    <Routes>
+    <div className="font-primary">
+      <Routes>
         <Route path="*" element={<NotFoundPage />} />
-      <Route path="/" element={<DashboardLayout />}>
-        <Route path="/" element={<Homepage />} />
-      </Route>
-    </Routes>
+
+        <Route element={<AuthLayout />}>
+          <Route path="/auth/signin" element={<SignInPage />} />
+        </Route>
+
+        <Route element={<DashboardLayout />}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/workflows" element={<Workflow />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
   	extend: {
+      fontFamily: {
+        // primary: ['"Space Grotesk"', "sans-serif"],
+        primary: ["Montserrat", "sans-serif"],
+      },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

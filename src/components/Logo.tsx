@@ -18,12 +18,12 @@ const Logo = ({
           fontSize
         )}
       >
-        <div className="rounded-xl bg-gradient-to-t from-emerald-500 to-emerald-600 p-2">
+        <div className="rounded-xl bg-gradient-to-t from-blue-500 to-blue-600 p-2">
           <SquareDashedMousePointer size={iconSize} className="stroke-white" />
         </div>
 
         <div>
-          <span className="bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
             Ayo
           </span>
           <span className="text-stone-700 dark:text-stone-300">Scrape</span>

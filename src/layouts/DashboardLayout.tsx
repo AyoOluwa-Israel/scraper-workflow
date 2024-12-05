@@ -3,9 +3,19 @@ import DesktopSidebar from "@/components/Sidebar";
 import { ModeToggle } from "@/components/ThemeModeToggle";
 
 import { Separator } from "@/components/ui/separator";
+import { RedirectToSignIn, SignedIn, UserButton, useUser } from "@clerk/clerk-react";
 import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
+  const { isSignedIn } = useUser();
+
+
+  if (!isSignedIn) {
+    return <RedirectToSignIn signInFallbackRedirectUrl={"/auth/signin"} />;
+  }
+
+
+
   return (
     <div className="flex h-screen">
       <DesktopSidebar />
@@ -14,12 +24,16 @@ const DashboardLayout = () => {
           <BreadcrumbHeader />
           <div className="gap-1 flex items-center">
             <ModeToggle />
+
+            <SignedIn>
+              <UserButton/>
+            </SignedIn>
           </div>
         </header>
         <Separator />
 
         <div className="overflow-auto">
-          <div className="flex-1 container py-4 text-accent-foreground">
+          <div className="flex-1 container p-4 text-accent-foreground">
             <Outlet />
           </div>
         </div>
